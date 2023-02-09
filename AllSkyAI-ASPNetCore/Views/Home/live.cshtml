@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "AllSkyAI Live";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+    <link type="text/css" rel="stylesheet" href="~/css/style.css">
+  </head>
+<body onload="setEndpoint()">
+    <noscript>
+      <strong>We're sorry but genesis-web doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app">
+        <div class="center">
+            <img src="~/images/AllSkyAILogo.png" alt="AllSkyAI Logo" width="200">
+        </div>
+
+        <div class="center">
+            <p id="endpoint"></p>
+        </div>
+
+        <div class="center">
+            <img id="liveImage" src="~/images/AllSkyAI_Placeholder.png" alt="Live image" width="800">
+        </div>
+
+        <div class="center">
+            <p class="small">Confidence: <span class="green" id="confidence">0%</span> Classification: <span class="green" id="classification">None</span> Inference time: <span class="green" id="inferenceTime">0s</span></p>
+        </div>
+
+        <div class="center">
+            <button class="button" onclick="classifyLive()">Classify Now</button>
+        </div>
+
+    </div>
+
+    <script>
+        function setEndpoint() {
+            document.getElementById("endpoint").innerHTML = window.location.href + "Classify";
+        };
+
+        function classifyLive() {
+            document.getElementById("liveImage").src = "@ViewBag.url";
+            fetch(window.location.href + 'Classify')
+              .then((response) => response.json())
+              .then((data) => {
+                    document.getElementById("confidence").innerHTML = data.confidence + "%";
+                    document.getElementById("classification").innerHTML = data.classification;
+                    document.getElementById("inferenceTime").innerHTML = data.inference + "s";
+              });
+
+            
+        }
+    </script>
+
+  </body>
+</html>
+
+
+
