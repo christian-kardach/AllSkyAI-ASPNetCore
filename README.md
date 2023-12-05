@@ -12,13 +12,14 @@ REST: https://localhost:5001/Classify
 ![MarineGEO circle logo](screenshot.jpg "MarineGEO logo")
 
 ## Confguration
-First you need to download your model from https://www.allskyai.com (generic model is coming) and save it to the <code>./models/</code> directory. </br></br>
+First you need to download your model and labels file from https://www.allskyai.com (generic model is coming) and save it to the <code>./models/</code> directory. </br></br>
 
 ### config.cfg
 In the extracted folder find a file called <code>config.cfg</code></br>
 ```
 URL=https://<your-allsky>/image.jpg
-MODEL=allskyai.onnx
+MODEL=allskyai_2023-11-12-06-45-48.onnx
+LABELS=label_map_2023-03-17-23-16-32.txt
 ```
 Change these values to match your setup.
 
