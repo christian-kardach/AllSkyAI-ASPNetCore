@@ -1,3 +1,15 @@
+# ARCHIVED
+New location:
+https://github.com/AllSkyAI/AllSkyAI-ASPNetCore
+
+
+
+
+
+
+
+
+
 # AllSkyAI - ASPNetCore Client
 
 This is a ASP.NET Core client for classifying sky conditions locally with a trained model from https://www.allskyai.com. When a request is sent it downloads the latest image from your AllSky and returns a classification that looks like this:
